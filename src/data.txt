@@ -1,0 +1,15 @@
+mod 'puppet_agent'
+   :git => 'git@alm-github.systems.uk.hsbc:unix-engineering-puppet/puppet_agent.git'
+   :ref  => '4.2.1'
+
+mod 'profile_liberty_mains'
+
+   :git    => 'git@alm-github.systems.uk.hsbc:MiddlewareEngineering-Puppet/profile_liberty_main.git'
+   
+   
+   :commit => 'm7brt0eff934hh0eg67'
+   
+mod 'profile_liberty_tools'
+   :git    => 'git@alm-github.systems.uk.hsbc:MiddlewareEngineering-Puppet/profile_liberty_tools.git'
+   :commit => 't3434fgh54e0fvff'
+
