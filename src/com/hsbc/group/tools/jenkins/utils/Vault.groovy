@@ -20,8 +20,9 @@ def getKubernetesToken() {
 
 def callHttp(url) {
 	def response = [:]
+	def http = new URL(url).openConnection() as HttpURLConnection
 	try {
-		def http = new URL(url).openConnection() as HttpURLConnection
+		
 		http.setRequestMethod('GET')
 		http.setDoOutput(true)
 		http.setRequestProperty('X-Vault-Token', this.clientToken)
@@ -37,15 +38,18 @@ def callHttp(url) {
 		}
 	} catch (Exception e) {
 		println('callHttp: ' + e.toString())
+	} finally {
+		http.disconnect()
 	}
 }
 
 def getClientToken() {
 	def response = [:]
+	def http = new URL(this.vaultApiUrl + '/auth/kubernetes/login').openConnection() as HttpURLConnection
 	try {
 		def kubeToken = getKubernetesToken()
 		def body = '{"jwt": "' + kubeToken + '", "role": "' + this.vaultRole + '"}'
-		def http = new URL(this.vaultApiUrl + '/auth/kubernetes/login').openConnection() as HttpURLConnection
+		
 		http.setRequestMethod('POST')
 		http.setDoOutput(true)
 		http.outputStream.write(body.getBytes('UTF-8'))
@@ -61,6 +65,8 @@ def getClientToken() {
 		}
 	} catch (Exception e) {
 		println('getClientToken: ' + e.toString())
+	} finally {
+		http.disconnect()
 	}
 }
 
