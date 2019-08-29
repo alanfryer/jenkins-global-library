@@ -1,7 +1,8 @@
 import com.hsbc.group.tools.jenkins.utils.Vault
 
-def call(MAp config) {
+def call(Map config) {
+	
 	Vault vault = new Vault()
-	vault.addJenkinsCredentials('easycicd', 'easycicd')
+	vault.addJenkinsCredentials(config.secretPath, config.vaultRole, config.vaultApiUrl)
 	
 }
