@@ -103,7 +103,7 @@ def addJenkinsCredential(user, pwd) {
 }
 
 
-def addJenkinsCredentials(path = 'easycicd', role = 'easycicd', apiUrl = 'http://192.168.58.129:8200/v1') {
+def addJenkinsCredentials(path, role, apiUrl) {
 	this.vaultApiUrl = apiUrl
 	this.secretPath = path
 	this.vaultRole = role
