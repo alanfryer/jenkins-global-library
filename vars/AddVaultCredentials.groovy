@@ -2,7 +2,7 @@ import com.hsbc.group.tools.jenkins.utils.Vault
 
 def call(Map config) {
 	Vault vault = new Vault()
-	if isValidInput(config) {
+	if (isValidInput(config)) {
 		vault.addJenkinsCredentials(config.secretPath, config.vaultRole, config.vaultApiUrl)
 	}
 }
