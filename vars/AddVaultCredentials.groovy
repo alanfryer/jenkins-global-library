@@ -9,7 +9,7 @@ def call(Map config) {
 
 def isValidInput(Map config) {
 	def message
-	if (!config.secretPath || !config.vaultRole || config.vaultApiUrl) {
+	if (!config.secretPath || !config.vaultRole || !config.vaultApiUrl) {
 		println(config.secretPath + ' ' + config.vaultRole + ' ' + config.vaultApiUrl)
 		message = 'secretPath or vaultRole or vaultApiUrl cannot be blank'
 		println(message)
