@@ -5,7 +5,6 @@ import com.cloudbees.plugins.credentials.*
 import com.cloudbees.plugins.credentials.domains.*
 import groovy.transform.Field
 
-
 @Field def vaultApiUrl
 @Field def secretPath
 @Field def vaultRole
